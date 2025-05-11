@@ -1,0 +1,20 @@
+alias: PC Bluetooth Monitor Webhook
+description: ""
+triggers:
+  - trigger: webhook
+    allowed_methods:
+      - POST
+      - PUT
+    local_only: true
+    webhook_id: bluetooth_monitor
+conditions: []
+actions:
+  - action: python_script.set_state
+    data:
+      entity_id: binary_sensor.pc_bluetooth_connection
+      state: |
+        {{ 'on' if trigger.json.bluetooth_connected == True else 'off'}}
+      last_updated: "{{ trigger.json.timestamp }}"
+      device_count: "{{ trigger.json.devices | length }}"
+      devices: "{{ trigger.json.devices }}"
+mode: single

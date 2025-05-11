@@ -1,0 +1,15 @@
+[Unit]
+Description=Bluetooth Connection Monitor for Home Assistant
+After=network.target bluetooth.target
+Wants=bluetooth.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/.local/share/ha-sensors-bluetooth/bluetooth_monitor.py
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target 
