@@ -60,6 +60,12 @@ systemctl --user status bluetooth-monitor.service
 journalctl --user -u bluetooth-monitor.service -f
 ```
 
+## Uninstallation
+
+```bash
+./uninstall_bluetooth_monitor.sh
+```
+
 ## License
 
 This project is licensed under the MIT License.
