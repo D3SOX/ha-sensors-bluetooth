@@ -35,7 +35,7 @@ mkdir -p "$INSTALL_DIR"
 
 # Copy Bluetooth monitor script to installation directory
 echo "Installing Bluetooth monitor script..."
-cp bluetooth_monitor.py "$INSTALL_DIR/"
+cp ../bluetooth_monitor.py "$INSTALL_DIR/"
 chmod +x "$INSTALL_DIR/bluetooth_monitor.py"
 
 # Prompt user for webhook URL
@@ -61,7 +61,7 @@ echo "Environment file created at $INSTALL_DIR/.env"
 # Install systemd user service
 echo "Installing systemd user service..."
 mkdir -p "$HOME/.config/systemd/user/"
-cp bluetooth-monitor.service "$HOME/.config/systemd/user/"
+cp ../bluetooth-monitor.service "$HOME/.config/systemd/user/"
 
 # Enable and start the service
 echo "Enabling and starting service..."
