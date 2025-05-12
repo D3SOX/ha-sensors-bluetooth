@@ -62,6 +62,7 @@ You can use this sensor with [Browser Mod](https://github.com/thomasloven/hass-b
 
 You can use this sensor to create a dashboard of all connected devices with battery status. The repository includes a sample dashboard card [`examples/dashboard-card.yaml`](./examples/dashboard-card.yaml) to display the connected devices. It shows device name, battery percentage, and connection status.
 
+![image](https://github.com/user-attachments/assets/5c4d8201-37f5-4c5e-aaf3-262d6c12fc21)
 
 ## Troubleshooting
 
