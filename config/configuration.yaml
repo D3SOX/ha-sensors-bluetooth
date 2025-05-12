@@ -1,3 +1,5 @@
+python_script:
+
 template:
   - binary_sensor:
     - name: "PC Bluetooth Connection"

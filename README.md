@@ -26,6 +26,7 @@ A monitoring system that reports connected Bluetooth devices from your Linux sys
    ```
 
 2. Add the provided Home Assistant configuration:
+   - In your HomeAssistant configuration folder make sure there is a `python_scripts` folder. Put the [set_state.py](https://github.com/rodpayne/home-assistant/blob/main/.homeassistant/python_scripts/set_state.py) file in there.
    - Merge the contents of [`config/configuration.yaml`](./config/configuration.yaml) with your configuration.yaml and Quick reload Home Assistant via the Developer Tools.
    - Create a automation and paste the yaml from [`config/bluetooth_webhook_automation.yaml`](./config/bluetooth_webhook_automation.yaml). 
    - You can remove and add the Webhook trigger to get a new webhook id.
