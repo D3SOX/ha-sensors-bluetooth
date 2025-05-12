@@ -26,13 +26,13 @@ A monitoring system that reports connected Bluetooth devices from your Linux sys
    ```
 
 2. Add the provided Home Assistant configuration:
-   - Merge the contents of [`configuration.yaml`](./configuration.yaml) with your configuration.yaml and Quick reload Home Assistant via the Developer Tools.
-   - Create a automation and paste the yaml from [`bluetooth_webhook_automation.yaml.yaml`](./bluetooth_webhook_automation.yaml.yaml). 
+   - Merge the contents of [`config/configuration.yaml`](./config/configuration.yaml) with your configuration.yaml and Quick reload Home Assistant via the Developer Tools.
+   - Create a automation and paste the yaml from [`config/bluetooth_webhook_automation.yaml`](./config/bluetooth_webhook_automation.yaml). 
    - You can remove and add the Webhook trigger to get a new webhook id.
 
 3. Run the installation script:
    ```bash
-   ./install_bluetooth_monitor.sh
+   ./scripts/install_bluetooth_monitor.sh
    ```
 
 4. Follow the prompts to enter your Home Assistant webhook URL.
@@ -52,7 +52,7 @@ Configuration is stored in `~/.local/share/ha-sensors-bluetooth/.env`. You can m
 
 ### Battery Level Monitoring
 
-The repository includes a sample automation [`bluetooth_battery_notification.yaml`](./bluetooth_battery_notification.yaml) to monitor battery levels of connected Bluetooth devices. It sends notifications when battery levels of a device fall below a configurable threshold (default is 30%)
+The repository includes a sample automation [`examples/bluetooth_battery_notification.yaml`](./examples/bluetooth_battery_notification.yaml) to monitor battery levels of connected Bluetooth devices. It sends notifications when battery levels of a device fall below a configurable threshold (default is 30%)
 
 ### Smart Playback of Notifications
 
@@ -60,7 +60,7 @@ You can use this sensor with [Browser Mod](https://github.com/thomasloven/hass-b
 
 ### Dashboard
 
-You can use this sensor to create a dashboard of all connected devices with battery status. The repository includes a sample dashboard card [`dashboard-card.yaml`](./dashboard-card.yaml) to display the connected devices. It shows device name, battery percentage, and connection status.
+You can use this sensor to create a dashboard of all connected devices with battery status. The repository includes a sample dashboard card [`examples/dashboard-card.yaml`](./examples/dashboard-card.yaml) to display the connected devices. It shows device name, battery percentage, and connection status.
 
 
 ## Troubleshooting
@@ -78,7 +78,7 @@ journalctl --user -u bluetooth-monitor.service -f
 ## Uninstallation
 
 ```bash
-./uninstall_bluetooth_monitor.sh
+./scripts/uninstall_bluetooth_monitor.sh
 ```
 
 ## License
