@@ -21,11 +21,11 @@ fi
 # Check Python dependencies
 echo "Checking Python dependencies..."
 if ! pip3 list | grep "requests"; then
-    echo "Warning: Python package 'requests' is not installed. Please install it with: pip3 install --user requests"
+    echo "Warning: Python package 'requests' is not installed. Please install it with your system's package manager or alternatively pip3 install --user requests"
 fi
 
 if ! pip3 list | grep "python-dotenv"; then
-    echo "Warning: Python package 'python-dotenv' is not installed. Please install it with: pip3 install --user python-dotenv"
+    echo "Warning: Python package 'python-dotenv' is not installed. Please install it with your system's package manager or alternatively pip3 install --user python-dotenv"
 fi
 
 # Create dedicated directory structure
