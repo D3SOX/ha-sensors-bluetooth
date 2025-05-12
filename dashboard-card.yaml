@@ -1,0 +1,19 @@
+type: markdown
+content: |-
+  {% set state = states('binary_sensor.pc_bluetooth_connection') %}
+  {% if state == 'on' %}
+    {% set devices = state_attr('binary_sensor.pc_bluetooth_connection', 'devices') %}
+    {% if devices %}
+  **Connected Bluetooth Devices:**  
+  {% for device in devices %}
+  - **Name**: {{ device.name }}  
+    **MAC**: `{{ device.mac }}`  
+    **Battery**: {{ device.battery }}%  
+
+  {% endfor %}
+    {% else %}
+  _No devices found, even though sensor is on._
+    {% endif %}
+  {% else %}
+  _Not connected to any Bluetooth device._
+  {% endif %}

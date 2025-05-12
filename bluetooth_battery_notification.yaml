@@ -1,0 +1,38 @@
+alias: Bluetooth Low Battery Notification
+description: Sends a notification when a bluetooth device battery level falls below 30%
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.pc_bluetooth_connection
+    attribute: devices
+actions:
+  - variables:
+      devices_below_threshold: >
+        {% set result = namespace(value=[]) %} {% set from_devices =
+        trigger.from_state.attributes.devices or [] %} {% set to_devices =
+        trigger.to_state.attributes.devices or [] %}
+
+        {% for to_device in to_devices %}
+          {% set from_device = (from_devices | selectattr('name', 'equalto', to_device.name) | list | first) %}
+          {% if to_device.battery is defined and to_device.battery | int < 30 %}
+            {% if from_device is not none and from_device.battery is defined %}
+              {% if from_device.battery | int >= 30 %}
+                {% set result.value = result.value + [to_device] %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endfor %} {{ result.value }}
+  - condition: template
+    value_template: "{{ devices_below_threshold | length > 0 }}"
+  - repeat:
+      for_each: "{{ devices_below_threshold }}"
+      sequence:
+        - data:
+            volume_level: 0.8
+            title: Low Battery Alert
+            message: "{{ repeat.item.name }}'s battery is at {{ repeat.item.battery }}%"
+            notification_data:
+              tags: low_battery
+              priority: high
+          action: script.notify_me
+mode: single

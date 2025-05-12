@@ -48,6 +48,21 @@ Configuration is stored in `~/.local/share/ha-sensors-bluetooth/.env`. You can m
 - `WEBHOOK_URL`: The webhook URL for Home Assistant
 - `CHECK_INTERVAL`: How often to check for connected devices (in seconds)
 
+## Usage Examples
+
+### Battery Level Monitoring
+
+The repository includes a sample automation [`bluetooth_battery_notification.yaml`](./bluetooth_battery_notification.yaml) to monitor battery levels of connected Bluetooth devices. It sends notifications when battery levels of a device fall below a configurable threshold (default is 30%)
+
+### Smart Playback of Notifications
+
+You can use this sensor with [Browser Mod](https://github.com/thomasloven/hass-browser_mod) to make your notifications play in your browser when your PC is on and a bluetooth device is connected.
+
+### Dashboard
+
+You can use this sensor to create a dashboard of all connected devices with battery status. The repository includes a sample dashboard card [`dashboard-card.yaml`](./dashboard-card.yaml) to display the connected devices. It shows device name, battery percentage, and connection status.
+
+
 ## Troubleshooting
 
 ### Checking Service Status
